@@ -31,11 +31,11 @@
       </MenuBar>
    </top>
    <left>
-      <TableView prefHeight="375.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="itemsTable" prefHeight="375.0" prefWidth="300.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="100.0" text="Serial Number" />
-          <TableColumn prefWidth="100.0" text="Name" />
-            <TableColumn prefWidth="100.0" text="Item Value" />
+          <TableColumn fx:id="serialColumn" prefWidth="100.0" text="Serial Number" />
+          <TableColumn fx:id="nameColumn" prefWidth="100.0" text="Name" />
+            <TableColumn fx:id="valueColumn" prefWidth="100.0" text="Item Value" />
         </columns>
       </TableView>
    </left>
