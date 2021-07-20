@@ -5,12 +5,6 @@ public class Item {
     private String name;
     private String value;
 
-    Item(String newSerialNumber, String newName, String newValue){
-        serialNumber = newSerialNumber;
-        name = newName;
-        value = newValue;
-    }
-
     public String getSerialNumber(){
         return serialNumber;
     }
@@ -28,6 +22,7 @@ public class Item {
     }
 
     public void setName(String newName){
+        //TODO: Make sure name is correct size.
         name = newName;
     }
 
