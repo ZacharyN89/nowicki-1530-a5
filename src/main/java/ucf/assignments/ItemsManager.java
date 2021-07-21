@@ -11,14 +11,12 @@ public class ItemsManager {
     }
 
     public boolean addItem(String serialNumber, String name, String value){
-        //Throw an exception if bad name and use a try catch in the controller.
-
-        Item newItem = new Item();
-        newItem.setSerialNumber(serialNumber);
-        newItem.setName(name);
-        newItem.setValue(value);
-
-        itemsList.add(newItem);
-        return true;
+        try {
+            Item newItem = new Item(serialNumber, name, value);
+            itemsList.add(newItem);
+            return true;
+        } catch(IllegalArgumentException e){
+            return false;
+        }
     }
 }

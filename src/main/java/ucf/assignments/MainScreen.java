@@ -1,10 +1,12 @@
 package ucf.assignments;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +17,13 @@ public class MainScreen implements Initializable {
     @FXML private TableColumn<Item, String> nameColumn;
     @FXML private TableColumn<Item, String> valueColumn;
 
+    private SceneManager sceneManager;
+    private ItemsManager listOfItems;
 
-    private ItemsManager listOfItems = new ItemsManager();
+    public MainScreen(ItemsManager newItemList, SceneManager newSceneManager){
+        listOfItems = newItemList;
+        sceneManager = newSceneManager;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -29,5 +36,12 @@ public class MainScreen implements Initializable {
         listOfItems.addItem("1243","Ken Doll","16.50");
 
         itemsTable.setItems(listOfItems.getItemsList());
+    }
+
+    public void addItemClicked(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        stage.setTitle("Add an Item");
+        stage.setScene(sceneManager.getScene("AddItemScreen"));
+        stage.show();
     }
 }

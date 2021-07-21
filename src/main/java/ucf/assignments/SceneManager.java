@@ -10,30 +10,39 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SceneManager extends Application {
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
-
-            Scene scene = new Scene(root);
-
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Item Lister");
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+public class SceneManager {
     Map<String, Scene> scenes = new HashMap<>();
 
-    public void loadAllScenes(){
-        //Use a list of our items.
+    void loadAllScenes(){
+        ItemsManager itemList = new ItemsManager();
+
+        //Make instances of all our controllers.
+        MainScreen mainScreen = new MainScreen(itemList, this);
+        AddItemScreen addItemScreen = new AddItemScreen(itemList, this);
+
+        Parent root;
+
+        //Load the Main Screen.
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+        loader.setController(mainScreen);
+        try{
+            root = loader.load();
+            scenes.put("MainScreen", new Scene(root));
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+        //Load the Add Item Screen.
+        loader = new FXMLLoader(getClass().getResource("AddItemScreen.fxml"));
+        loader.setController(addItemScreen);
+        try{
+            root = loader.load();
+            scenes.put("AddItemScreen", new Scene(root));
+        } catch(Exception e){
+
+        }
+
     }
 
     public Scene getScene(String name){
