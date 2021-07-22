@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="searchSerialField" layoutX="14.0" layoutY="53.0" />
+      <TextField fx:id="searchNameField" layoutX="437.0" layoutY="53.0" />
+      <TextField fx:id="serialField" layoutX="175.0" layoutY="152.0" prefHeight="25.0" prefWidth="250.0" />
+      <TextField fx:id="nameField" layoutX="175.0" layoutY="222.0" prefHeight="25.0" prefWidth="250.0" />
+      <TextField fx:id="valueField" layoutX="175.0" layoutY="282.0" prefHeight="25.0" prefWidth="250.0" />
+      <Button layoutX="39.0" layoutY="91.0" mnemonicParsing="false" onAction="#searchSerialButton" prefWidth="100.0" text="Search" />
+      <Button layoutX="250.0" layoutY="320.0" mnemonicParsing="false" onAction="#removeButton" prefWidth="100.0" text="Remove Item" />
+      <Button layoutX="250.0" layoutY="355.0" mnemonicParsing="false" onAction="#setNewButton" prefWidth="100.0" text="Set New Values" />
+      <Label layoutX="23.0" layoutY="29.0" text="Search By Serial Number" />
+      <Label layoutX="468.0" layoutY="29.0" text="Search By Name" />
+      <Label layoutX="262.0" layoutY="135.0" text="Serial Number" />
+      <Label layoutX="284.0" layoutY="205.0" text="Name" />
+      <Label layoutX="285.0" layoutY="265.0" text="Value" />
+      <Button layoutX="462.0" layoutY="91.0" mnemonicParsing="false" onAction="#searchNameButton" prefWidth="100.0" text="Search" />
+   </children>
+</AnchorPane>

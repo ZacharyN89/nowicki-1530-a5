@@ -31,9 +31,9 @@ public class MainScreen implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("value"));
 
-        listOfItems.addItem("1223","Chucky Doll","15.00");
-        listOfItems.addItem("1233","Barbie Doll","14.00");
-        listOfItems.addItem("1243","Ken Doll","16.50");
+        listOfItems.addItem("1223","Chucky Doll","$15.00");
+        listOfItems.addItem("1233","Barbie Doll","$14.00");
+        listOfItems.addItem("1243","Ken Doll","$16.50");
 
         itemsTable.setItems(listOfItems.getItemsList());
     }
@@ -42,6 +42,13 @@ public class MainScreen implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Add an Item");
         stage.setScene(sceneManager.getScene("AddItemScreen"));
+        stage.show();
+    }
+
+    public void searchClicked(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        stage.setTitle("Search for an Item");
+        stage.setScene(sceneManager.getScene("SearchItemScreen"));
         stage.show();
     }
 }

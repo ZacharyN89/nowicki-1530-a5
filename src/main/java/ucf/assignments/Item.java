@@ -43,16 +43,6 @@ public class Item {
             if (split[0].charAt(0) != '$' || split[1].length() != 2) {
                 return false;
             }
-            int count = 0;
-            for (char c2 : split[0].toCharArray()) {
-                if ((c2 != '$')) {
-                    // found invalid char
-                    count++;
-                    if(count>1){
-                        return false;
-                    }
-                }
-            }
             return true;
 
         } catch(ArrayIndexOutOfBoundsException e){
@@ -80,14 +70,23 @@ public class Item {
     }
 
     public void setSerialNumber(String newSerialNumber){
+        if(!serialTest(newSerialNumber)){
+            throw new IllegalArgumentException();
+        }
         serialNumber = newSerialNumber;
     }
 
     public void setName(String newName){
+        if(!nameTest(newName)){
+            throw new IllegalArgumentException();
+        }
         name = newName;
     }
 
     public void setValue(String newValue){
+        if(!valueTest(newValue)){
+            throw new IllegalArgumentException();
+        }
         value = newValue;
     }
 }

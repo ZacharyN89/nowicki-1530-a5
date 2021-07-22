@@ -19,6 +19,7 @@ public class SceneManager {
         //Make instances of all our controllers.
         MainScreen mainScreen = new MainScreen(itemList, this);
         AddItemScreen addItemScreen = new AddItemScreen(itemList, this);
+        SearchItemScreen searchItemScreen = new SearchItemScreen(itemList, this);
 
         Parent root;
 
@@ -39,6 +40,16 @@ public class SceneManager {
         try{
             root = loader.load();
             scenes.put("AddItemScreen", new Scene(root));
+        } catch(Exception e){
+
+        }
+
+        //Load the Add Item Screen.
+        loader = new FXMLLoader(getClass().getResource("SearchItemScreen.fxml"));
+        loader.setController(searchItemScreen);
+        try{
+            root = loader.load();
+            scenes.put("SearchItemScreen", new Scene(root));
         } catch(Exception e){
 
         }
