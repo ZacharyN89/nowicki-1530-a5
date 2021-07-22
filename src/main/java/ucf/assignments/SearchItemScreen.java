@@ -21,6 +21,7 @@ public class SearchItemScreen {
     }
 
     public void searchSerialButton(ActionEvent actionEvent) {
+        //Set values to searched item.
         try {
             curItem = listOfItems.getItemBySerial(searchSerialField.getText());
 
@@ -33,6 +34,7 @@ public class SearchItemScreen {
     }
 
     public void searchNameButton(ActionEvent actionEvent) {
+        //Set values to searched item.
         try {
             curItem = listOfItems.getItemByName(searchNameField.getText());
 
@@ -50,6 +52,7 @@ public class SearchItemScreen {
     }
 
     public void setNewButton(ActionEvent actionEvent) {
+        //Edit an item and flush the input fields.
         try {
             if(listOfItems.setItem(searchSerialField.getText(),serialField.getText(),nameField.getText(),valueField.getText())){
                 curItem = listOfItems.getItemBySerial(serialField.getText());
@@ -67,6 +70,7 @@ public class SearchItemScreen {
     }
 
     public void clear(){
+        //Clear all fields.
         curItem = null;
         searchNameField.clear();
         searchSerialField.clear();

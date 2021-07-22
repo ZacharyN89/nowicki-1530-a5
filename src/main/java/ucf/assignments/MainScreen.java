@@ -27,18 +27,21 @@ public class MainScreen implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        //Start the table view.
         serialColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("serialNumber"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("value"));
 
-        listOfItems.addItem("1223","Chucky Doll","$15.00");
-        listOfItems.addItem("1233","Barbie Doll","$14.00");
-        listOfItems.addItem("1243","Ken Doll","$16.50");
+        //Some test values.
+//        listOfItems.addItem("1223","Chucky Doll","$15.00");
+//        listOfItems.addItem("1233","Barbie Doll","$14.00");
+//        listOfItems.addItem("1243","Ken Doll","$16.50");
 
         itemsTable.setItems(listOfItems.getItemsList());
     }
 
     public void addItemClicked(ActionEvent actionEvent) {
+        //Pop up the add item screen.
         Stage stage = new Stage();
         stage.setTitle("Add an Item");
         stage.setScene(sceneManager.getScene("AddItemScreen"));
@@ -46,6 +49,7 @@ public class MainScreen implements Initializable {
     }
 
     public void searchClicked(ActionEvent actionEvent) {
+        //Pop up the search item screen.
         Stage stage = new Stage();
         stage.setTitle("Search for an Item");
         stage.setScene(sceneManager.getScene("SearchItemScreen"));
