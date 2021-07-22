@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App{
+    +main()
+    +start()
+}
+class SceneManager{
+    -Map<String, Scene> scenes
+    +loadAllScenes()
+    +Scene getScene()
+}
+class MainScreen{
+    -SceneManager sceneManager
+    -ItemsManager listOfItems
+    +initialize()
+    +addItemClicked()
+    +searchItemClicked()
+}
+class AddItemScreen{
+    -SceneManager sceneManager
+    -ItemsManager listOfItems
+    +addItemButtonClicked()
+}
+class SearchItemScreen{
+    -SceneManager sceneManager
+    -ItemsManager listOfItems
+    +searchSerialButton()
+    +searchNameButton()
+    +removeButton()
+    +setNewButton()
+    +clear()
+}
+class ItemsManager{
+    -ObservableList<Item> itemsList
+    +getItemsList()
+    +addItem()
+    +removeItem()
+    +getItemBySerial()
+    +getItemByName()
+    +setItem()
+}
+class Item{
+    -String name
+    -String serialNumber
+    -String value
+    +nameTest
+    +serialTest
+    +valueTest
+    +setName
+    +getItemByName
+    +setSerial
+    +getSerial
+    +setValue
+    +getValue
+}
+
+javafx.Application <|-- App
+App <_-- SceneManager
+SceneManager <|-- MainScreen
+SceneManager <|-- AddItemScreen
+SceneManager <|-- SearchItemScreen
+SceneManager <|-- ItemsManager
+ItemsManager <|-- Item
+
+
+
+
+@enduml
