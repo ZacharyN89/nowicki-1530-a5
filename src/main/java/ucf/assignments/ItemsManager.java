@@ -28,14 +28,15 @@ public class ItemsManager {
         }
     }
 
-    public void removeItem(String serial){
+    public boolean removeItem(String serial){
         //Search the list for the item and remove it.
         for(Item item: itemsList){
             if(serial.equals(item.getSerialNumber())){
                 itemsList.remove(item);
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public Item getItemByName(String searchName){
